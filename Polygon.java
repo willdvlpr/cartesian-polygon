@@ -5,7 +5,6 @@ public class Polygon {
   public static int LENGTH = 20;
 
   public static double inputPoints() {
-    // Creates scanner object
     Scanner input = new Scanner(System.in);
 
     System.out.println("How many points?: ");
