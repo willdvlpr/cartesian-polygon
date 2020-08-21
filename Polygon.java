@@ -3,14 +3,12 @@ import java.io.*;
 
 public class Polygon {
   public static int LENGTH = 20;
+  public static double[] x_coordinates = new double[LENGTH];
+  public static double[] y_coordinates = new double[LENGTH];
 
-  public static double inputPoints() {
+  public static void inputPoints(int n) {
     Scanner input = new Scanner(System.in);
 
-    System.out.println("How many points?: ");
-    int n = input.nextInt();
-    double[] x_coordinates = new double[LENGTH];
-    double[] y_coordinates = new double[LENGTH];
     for (int i = 0 ; i < n; i++) {
       int coordinate = i + 1;
       System.out.print("Enter x coordinate " + coordinate + ": ");
@@ -20,8 +18,7 @@ public class Polygon {
       y_coordinates[i] = input.nextDouble();
     }
 
-    double area = computeArea(x_coordinates, y_coordinates, n);
-    return Math.abs(area);
+    return;
   }
 
   public static double computeArea(double X[], double Y[], int n) {
@@ -38,7 +35,11 @@ public class Polygon {
   }
 
   public static void main(String[] args) {
-      double polygonArea = inputPoints();
-      System.out.println(polygonArea);
+    Scanner input = new Scanner(System.in);
+    System.out.println("How many points?: ");
+    int n = input.nextInt();
+    inputPoints(n);
+    double area = computeArea(x_coordinates, y_coordinates, n);
+    System.out.println("Area is " + area);
   }
 }
